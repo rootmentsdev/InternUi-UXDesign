@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import homeImage from "../assets/home.png";
 import suitorguy from "../assets/suitorguy.png";
 import zorucci from "../assets/zorucci.png";
+import { trackVisit, trackApplication } from "../utils/analytics";
 
 const HiringInternsPage = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -13,6 +14,17 @@ const HiringInternsPage = () => {
   });
 
   useEffect(() => {
+    // Track page visit
+    trackVisit();
+    
+    // Track page view in Google Analytics
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: 'Hiring Interns',
+        page_location: window.location.href
+      });
+    }
+    
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev.minutes > 0) {
@@ -136,7 +148,16 @@ const HiringInternsPage = () => {
             If you're ready to grow, contribute, and actually do the work, don't wait
           </p>
           
-          <button className="apply-button">
+          <button className="apply-button" onClick={() => {
+            trackApplication();
+            // Track application in Google Analytics
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'application_submit', {
+                event_category: 'engagement',
+                event_label: 'internship_application'
+              });
+            }
+          }}>
             Apply Now
             <span className="button-arrow">→</span>
           </button>
