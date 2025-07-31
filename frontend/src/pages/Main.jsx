@@ -154,9 +154,13 @@ const HiringInternsPage = () => {
             if (typeof gtag !== 'undefined') {
               gtag('event', 'application_submit', {
                 event_category: 'engagement',
-                event_label: 'internship_application'
+                event_label: 'internship_application',
+                value: 1,
+                custom_parameter: 'apply_button_click'
               });
             }
+            // Show confirmation
+            alert('Application tracked! Check analytics for data.');
           }}>
             Apply Now
             <span className="button-arrow">→</span>

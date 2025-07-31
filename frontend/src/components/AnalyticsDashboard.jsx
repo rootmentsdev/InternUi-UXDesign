@@ -63,6 +63,7 @@ const AnalyticsDashboard = () => {
             <div className="stat-card">
               <h3>📝 Total Applications</h3>
               <p className="stat-number">{analytics.totalApplications}</p>
+              <p className="stat-subtitle">Apply button clicks</p>
             </div>
             <div className="stat-card">
               <h3>📊 Conversion Rate</h3>
