@@ -318,16 +318,6 @@ const HiringInternsPage = () => {
               <span className="timer-label">Secs</span>
             </div>
           </div>
-          
-          {/* Progress Bar */}
-          <div className="progress-bar-container">
-            <div 
-              className="progress-bar" 
-              style={{ 
-                width: `${((timeLeft.minutes * 60 + timeLeft.seconds) / (30 * 60)) * 100}%` 
-              }}
-            ></div>
-          </div>
 
           <p className="timer-description">
             We're selecting a small, passionate team of interns for the next phase of our product and brand rollouts. 
@@ -338,22 +328,19 @@ const HiringInternsPage = () => {
             If you're ready to grow, contribute, and actually do the work, don't wait
           </p>
 
-          <button 
-            className={`apply-button ${timeLeft.minutes > 0 || timeLeft.seconds > 0 ? 'urgent' : ''}`}
-            onClick={() => {
-              trackApplication();
-              if (typeof gtag !== 'undefined') {
-                gtag('event', 'application_submit', {
-                  event_category: 'engagement',
-                  event_label: 'internship_application',
-                  value: 1,
-                  custom_parameter: 'apply_button_click'
-                });
-              }
-              // Open the Google Forms application link
-              window.open('https://docs.google.com/forms/d/e/1FAIpQLSdVFBvwD1zwuHox7PnaMjvf1Fgl1NJ34hZywC3sRgHeqSZBYA/viewform?usp=sf_link', '_blank');
-            }}
-          >
+          <button className="apply-button" onClick={() => {
+            trackApplication();
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'application_submit', {
+                event_category: 'engagement',
+                event_label: 'internship_application',
+                value: 1,
+                custom_parameter: 'apply_button_click'
+              });
+            }
+            // Open the Google Forms application link
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLSdVFBvwD1zwuHox7PnaMjvf1Fgl1NJ34hZywC3sRgHeqSZBYA/viewform?usp=sf_link', '_blank');
+          }}>
             Apply Now
             <span className="button-arrow">→</span>
           </button>

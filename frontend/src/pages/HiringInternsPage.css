@@ -389,41 +389,6 @@ html {
   font-family: 'Inter', sans-serif;
 }
 
-/* Progress Bar */
-.progress-bar-container {
-  width: 100%;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  margin-bottom: 2rem;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(135deg, #8b5cf6, #a855f7);
-  border-radius: 4px;
-  transition: width 1s linear;
-  position: relative;
-}
-
-.progress-bar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
 .timer-description, .encouragement {
   color: #e5e5e5;
   font-size: 1rem;
@@ -458,35 +423,6 @@ html {
   min-width: 280px;
   justify-content: center;
   font-family: 'Inter', sans-serif;
-  transform-origin: center;
-  animation: buttonPulse 2s ease-in-out infinite;
-}
-
-@keyframes buttonPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
-  }
-  50% {
-    transform: scale(1.02);
-    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
-  }
-}
-
-.apply-button.urgent {
-  animation: buttonShrink 30s linear forwards, buttonPulse 1s ease-in-out infinite;
-}
-
-@keyframes buttonShrink {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(0.9);
-  }
 }
 
 .apply-button::before {
